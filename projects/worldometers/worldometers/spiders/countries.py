@@ -10,7 +10,6 @@ class CountriesSpider(scrapy.Spider):
     def parse(self, response):
         title = response.xpath('//h1/text()').get()
         countries = response.xpath('//td/a/text()').getall()
-        pass
 
         yield {
             'title' : title,
