@@ -15,7 +15,9 @@ class CountriesSpider(scrapy.Spider):
             country_link = country.xpath('.//@href').get()
 
 
-            yield {
-                'country_name' : country_name,
-                'country_link' : country_link
-                }
+            yield response.follow(url = country_link)
+
+            # yield {
+            #     'country_name' : country_name,
+            #     'country_link' : country_link
+            #     }
